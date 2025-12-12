@@ -1,0 +1,150 @@
+/* project.css — Material-You tabs + dark theme + project card fixes */
+
+/* Variables */
+:root {
+  --emerald-500: #10B981;
+  --emerald-600: #059669;
+  --dark-bg: #111827; /* match homepage */
+}
+
+/* Base: force dark background (page default) */
+html, body {
+  height: 100%;
+}
+body.custom-dark {
+  background-color: var(--dark-bg);
+  color: #f8fafc;
+}
+
+/* Card / panel style */
+.bg-white\/5 { background-color: rgba(255,255,255,0.04) !important; }
+.bg-white\/60 { background-color: rgba(255,255,255,0.06) !important; }
+
+/* Border color adjustments for dark/light */
+html.dark .border, body.custom-dark .border { border-color: #1f2937 !important; }
+html:not(.dark) .border { border-color: #e5e7eb !important; }
+
+/* Buttons */
+.btn-emerald {
+  background: var(--emerald-500);
+  color: white;
+  padding: .45rem .65rem;
+  border-radius: .375rem;
+}
+
+/* -------------------------
+   Tab strip (Material-You)
+   ------------------------- */
+.tab-strip {
+  display: flex;
+  align-items: stretch;
+  gap: 0.5rem;
+  position: relative;
+  width: 100%;
+  justify-content: flex-start; /* left-aligned like Chrome */
+  padding: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Individual tab button */
+.tab-btn {
+  position: relative;
+  background: transparent;
+  color: #cbd5e1;
+  padding: 0.55rem 0.9rem;
+  border-radius: 0.75rem; /* pill-ish */
+  border: 1px solid transparent;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: transform .18s ease, color .18s ease, background .18s ease, box-shadow .18s ease;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Hover */
+.tab-btn:hover {
+  background: rgba(255,255,255,0.03);
+  color: #ffffff;
+}
+
+/* Active tab styling: lift + subtle fill (Material feel) */
+.tab-btn.active {
+  transform: translateY(-6px);
+  background: rgba(255,255,255,0.04);
+  color: var(--emerald-500);
+  box-shadow: 0 8px 20px rgba(2,6,23,0.5);
+}
+
+/* Tab Indicator (sliding underline) */
+.tab-indicator {
+  position: absolute;
+  bottom: 6px;
+  height: 3px;
+  width: 64px; /* will be adjusted by JS to match active tab width */
+  background: var(--emerald-500);
+  border-radius: 99px;
+  transform-origin: left center;
+  transition: transform .25s cubic-bezier(.2,.9,.2,1), width .25s cubic-bezier(.2,.9,.2,1), left .25s cubic-bezier(.2,.9,.2,1), opacity .25s;
+  pointer-events: none;
+  will-change: left, width, transform;
+  box-shadow: 0 4px 10px rgba(16,185,129,0.12);
+}
+
+/* Make indicator fade when switching to hidden tab (JS toggles opacity) */
+.tab-indicator.hidden { opacity: 0; }
+
+/* Content container transitions */
+#constructionProjects, #designProjects {
+  transition: opacity .35s ease, transform .35s ease;
+}
+
+/* Hidden slide state */
+.hidden-slide {
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+}
+
+/* Project card layout to ensure equal height */
+.project-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.project-card .desc { flex: 1 1 auto; margin-bottom: 1rem; }
+
+/* Grid wrapper: ensure contents align */
+.project-grid > div { display: flex; }
+
+/* Scroll-to-top */
+#toTop {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  background: var(--emerald-500);
+  color: #fff;
+  padding: .6rem;
+  border-radius: 999px;
+  box-shadow: 0 8px 20px rgba(2,6,23,0.45);
+  display: none;
+  z-index: 60;
+}
+#toTop.show { display: block; opacity: 1; transition: opacity .25s; }
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .tab-strip { gap: .35rem; padding: .2rem; }
+  .tab-btn { padding: .45rem .65rem; font-size: .9rem; }
+}
+/* --- Restore visible border for project cards --- */
+.project-card {
+    border: 1px solid #1f2937 !important; /* Tailwind gray-800 (dark mode) */
+}
+
+html:not(.dark) .project-card {
+    border-color: #e5e7eb !important; /* light mode fallback */
+}
+
+.project-card {
+    border: 1px solid rgba(255,255,255,0.09) !important;
+}

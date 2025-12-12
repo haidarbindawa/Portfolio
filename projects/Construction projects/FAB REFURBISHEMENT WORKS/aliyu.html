@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en" class="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Project Title — Engr. Ado Aliyu Ali</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  :root {
+    --emerald-500:#10B981;
+    --emerald-600:#059669;
+  }
+  .lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 50;
+    align-items: center;
+    justify-content: center;
+  }
+  .lightbox img {
+    max-height: 80vh;
+    max-width: 90vw;
+    border-radius: 0.5rem;
+  }
+  .lightbox.active {
+    display: flex;
+  }
+</style>
+</head>
+<body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
+<header class="max-w-6xl mx-auto p-6 flex items-center justify-between">
+  <h1 class="text-xl font-semibold">Project Title</h1>
+  <a href="../../projects.html" class="inline-flex items-center text-sm px-3 py-2 rounded-md border border-[var(--emerald-500)] text-[var(--emerald-500)] hover:bg-[var(--emerald-500)] hover:text-white transition-all duration-300">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+    </svg>
+    Back to Projects
+  </a>
+</header>
+
+<main class="max-w-6xl mx-auto p-6 space-y-6">
+  <img src="../../images/project1.jpg" alt="Project Image" class="w-full h-64 object-cover rounded-md">
+  <div>
+    <h2 class="text-lg font-semibold mb-2">Overview</h2>
+    <p class="text-gray-400">This section can include project summary, scope, key tasks, and your role. Replace this text with project-specific details later.</p>
+  </div>
+
+  <div>
+    <h2 class="text-lg font-semibold mb-2">Gallery</h2>
+    <div id="gallery" class="grid md:grid-cols-3 gap-3">
+      <img src="../../images/project1.jpg" class="gallery-img rounded-md object-cover w-full h-40 cursor-pointer" alt="">
+      <img src="../../images/project2.jpg" class="gallery-img rounded-md object-cover w-full h-40 cursor-pointer" alt="">
+      <img src="../../images/project3.jpg" class="gallery-img rounded-md object-cover w-full h-40 cursor-pointer" alt="">
+    </div>
+  </div>
+
+  <div>
+    <h2 class="text-lg font-semibold mb-2">Downloads</h2>
+    <a href="../../assets/project1_brief.pdf" class="text-sm px-3 py-2 rounded-md" style="background:var(--emerald-500);color:#fff">Download Project Brief (PDF)</a>
+  </div>
+</main>
+
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox">
+  <button id="prev" class="absolute left-6 p-3 bg-white/10 hover:bg-[var(--emerald-500)] rounded-full transition-all duration-300 hover:scale-110 backdrop-blur-md">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+    </svg>
+  </button>
+
+  <img id="lightbox-img" src="" alt="Expanded Image" class="shadow-2xl">
+
+  <button id="next" class="absolute right-6 p-3 bg-white/10 hover:bg-[var(--emerald-500)] rounded-full transition-all duration-300 hover:scale-110 backdrop-blur-md">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+    </svg>
+  </button>
+</div>
+
+<script>
+  const images = document.querySelectorAll('.gallery-img');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const prevBtn = document.getElementById('prev');
+  const nextBtn = document.getElementById('next');
+  let currentIndex = 0;
+
+  images.forEach((img, index) => {
+    img.addEventListener('click', () => {
+      currentIndex = index;
+      lightboxImg.src = img.src;
+      lightbox.classList.add('active');
+      updateButtons();
+    });
+  });
+
+  function updateButtons() {
+    prevBtn.style.display = currentIndex === 0 ? 'none' : 'block';
+    nextBtn.style.display = currentIndex === images.length - 1 ? 'none' : 'block';
+  }
+
+  function showImage(index) {
+    if (index < 0 || index >= images.length) return;
+    currentIndex = index;
+    lightboxImg.src = images[currentIndex].src;
+    updateButtons();
+  }
+
+  prevBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    showImage(currentIndex - 1);
+  });
+  nextBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    showImage(currentIndex + 1);
+  });
+
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) lightbox.classList.remove('active');
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('active')) return;
+    if (e.key === 'Escape') lightbox.classList.remove('active');
+    if (e.key === 'ArrowLeft') showImage(currentIndex - 1);
+    if (e.key === 'ArrowRight') showImage(currentIndex + 1);
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>4-Bedroom Detached Duplex – Guzape, Abuja</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../../css/project-style.css">
+  <style>
+    .hero { height: 360px; }
+    @media (min-width:1024px) { .hero { height: 420px; } }
+  </style>
+</head>
+
+<body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
+
+  <!-- Header -->
+  <header class="max-w-6xl mx-auto p-6 flex items-center justify-between">
+    <h1 class="text-xl font-semibold">PHYSICS LABORATORY – FEDERAL UNIVERSITY DUTSE</h1>
+    <a href="../../../projects.html"
+       class="inline-flex items-center text-sm px-3 py-2 rounded-md border border-[var(--emerald-500)] text-[var(--emerald-500)] hover:bg-[var(--emerald-500)] hover:text-white transition-all duration-300">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+      </svg>
+      Back to Projects
+    </a>
+  </header>
+
+  <!-- Main -->
+  <main class="max-w-6xl mx-auto p-6 space-y-10">
+
+    <!-- Hero (first rendered image) -->
+    <img src="project tile.png" alt="Proposed Villa - Render" class="w-full object-cover rounded-md hero">
+
+    <!-- Overview -->
+    <section>
+      <h2 class="text-2xl font-semibold mb-3 text-[var(--emerald-500)]">Project Overview</h2>
+      <p class="leading-relaxed text-gray-300">
+         This project involved the structural design of a new Physics Laboratory building for Federal University Dutse. 
+         The assignment covered preliminary studies, geotechnical verification, structural modeling, foundation design, 
+         and preparation of coordinated construction documents to support safe and efficient project delivery.
+      </p>
+    </section>
+
+    <!-- Scope -->
+    <section>
+      <h2 class="text-2xl font-semibold text-[var(--emerald-500)] mb-4">Scope of Work</h2>
+      <ul class="list-disc pl-6 space-y-2 text-gray-300">
+      <li>Preliminary investigation and site data review</li>
+      <li>Geotechnical verification and interpretation of soil test results</li>
+      <li>Coordination with architectural and MEP teams</li>
+      <li>Structural analysis and load determination</li>
+      <li>Design of beams, slabs, columns, staircases, and roof system</li>
+      <li>Foundation system design based on soil parameters</li>
+      <li>Preparation of structural drawings and calculation reports</li>
+      <li>Review and quality checks for constructability and compliance</li>
+      </ul>
+    </section>
+
+    <!-- Role -->
+    <section>
+      <h2 class="text-2xl font-semibold text-[var(--emerald-500)] mb-4">My Role & Key Contributions</h2>
+      <ul class="list-disc pl-6 space-y-2 text-gray-300">
+       <li>Performed structural analysis and modelling</li>
+        <li>Verified geotechnical inputs for foundation selection and sizing</li>
+        <li>Designed all structural members and ensured code compliance</li>
+        <li>Reviewed architectural integration and structural layouts</li>
+        <li>Produced detailed structural drawings and technical reports</li>
+      </ul>
+    </section>
+
+    <!-- Outcome -->
+    <section>
+      <h2 class="text-2xl font-semibold text-[var(--emerald-500)] mb-4">Outcome</h2>
+      <p class="leading-relaxed text-gray-300">
+         The structural design was successfully completed and delivered with full documentation, providing the university with a safe, durable, and cost-efficient building solution tailored to laboratory functionality. 
+         The final drawings and calculations offered clear guidance for construction, minimized potential site challenges, and ensured that the building could be executed without delays arising from design ambiguities.   
+     </p>
+    </section>
+
+    <!-- Gallery -->
+    <section>
+      <h2 class="text-2xl font-semibold mb-3 text-[var(--emerald-500)]">Gallery</h2>
+
+      <div class="gallery grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+
+        <!-- 4 rendered images -->
+        <img src="FUD 1.png" class="gallery-img w-full h-64 object-cover rounded-md transform transition-transform duration-300 hover:scale-105 cursor-pointer" alt="Render 1">
+        <img src="FUD 2.png" class="gallery-img w-full h-64 object-cover rounded-md transform transition-transform duration-300 hover:scale-105 cursor-pointer" alt="Render 2">
+        <img src="FUD 3.png" class="gallery-img w-full h-64 object-cover rounded-md transform transition-transform duration-300 hover:scale-105 cursor-pointer" alt="Drawing 5">
+        <img src="FUD 4.png" class="gallery-img w-full h-64 object-cover rounded-md transform transition-transform duration-300 hover:scale-105 cursor-pointer" alt="Render 4">
+
+        <!-- 5 drawing sheets -->
+        <img src="FUD 5.png" class="gallery-img w-full h-64 object-cover rounded-md transform transition-transform duration-300 hover:scale-105 cursor-pointer" alt="Drawing 1">
+        <img src="FUD 6.png" class="gallery-img w-full h-64 object-cover rounded-md transform transition-transform duration-300 hover:scale-105 cursor-pointer" alt="Drawing 2">
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox">
+    <button id="prev" class="absolute left-6 p-3 bg-white/10 hover:bg-[var(--emerald-500)] rounded-full transition-all duration-300 hover:scale-110 backdrop-blur-md">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+      </svg>
+    </button>
+
+    <img id="lightbox-img" src="" alt="Expanded Image" class="shadow-2xl rounded-md max-w-[90%] max-h-[85vh]">
+
+    <button id="next" class="absolute right-6 p-3 bg-white/10 hover:bg-[var(--emerald-500)] rounded-full transition-all duration-300 hover:scale-110 backdrop-blur-md">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+      </svg>
+    </button>
+
+    <button id="close" class="absolute top-6 right-6 text-white text-3xl font-bold">&times;</button>
+  </div>
+
+  <!-- Scroll to top -->
+  <button id="toTop" class="hidden fixed bottom-6 right-6 bg-[var(--emerald-500)] text-white p-3 rounded-full shadow-lg transition-all duration-500 hover:shadow-[0_0_15px_var(--emerald-500)] hover:bg-[var(--emerald-600)]">
+    <svg xmlns="http://www.w3.org/2000/svg"
+         fill="none" viewBox="0 0 24 24" stroke-width="2"
+         stroke="currentColor" class="w-6 h-6 transform transition-transform duration-300 hover:-translate-y-1">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
+    </svg>
+  </button>
+
+  <script src="../../js/project-script.js"></script>
+</body>
+</html>
