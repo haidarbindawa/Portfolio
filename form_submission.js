@@ -22,7 +22,7 @@ document.getElementById("form").addEventListener("submit", async function(e) {
     const result = await response.json();
 
     if (result.success) {
-      alert("Message sent successfully!");
+      alert("Thanks for reaching out — your message is sent.!");
       this.reset();
     } else {
       alert("Failed to send message. Please try again.");
