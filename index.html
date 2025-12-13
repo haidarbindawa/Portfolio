@@ -321,7 +321,7 @@ document.getElementById("contactForm").addEventListener("submit", function(e) {
   })
   .then(response => {
     if (response.ok) {
-      status.innerText = "✅ Message sent successfully!";
+      status.innerText = "Thanks for reaching out — your message is sent!";
       status.classList.remove("hidden");
       status.classList.remove("text-red-600");
       status.classList.add("text-green-600");
