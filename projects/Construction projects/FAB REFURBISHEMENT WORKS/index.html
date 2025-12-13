@@ -73,7 +73,7 @@
 
     <div>
       <h2 class="text-2xl font-semibold mb-3">Gallery</h2>
-      <div id="gallery" class="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+      <div class="gallery">
         <img src="Land reclamation for Jetty Construction .jpg" class="gallery-img w-full h-64 object-cover rounded-md transform transition-transform duration-300 hover:scale-105 cursor-pointer" alt="">
         <img src="Sheet pile to be used for at FAB JETTY.jpg" class="gallery-img w-full h-64 object-cover rounded-md transform transition-transform duration-300 hover:scale-105 cursor-pointer" alt="">
         <img src="Driving in of sheet pile at NLNG FAB JETTY 1 .jpg" class="gallery-img w-full h-64 object-cover rounded-md transform transition-transform duration-300 hover:scale-105 cursor-pointer" alt="">
@@ -107,78 +107,10 @@
       <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
     </svg>
   </button>
+  <button id="close" class="absolute top-6 right-6 text-white text-3xl font-bold">&times;</button>
 </div>
 
-
- <script>
-  const images = document.querySelectorAll('.gallery-img');
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImg = document.getElementById('lightbox-img');
-  const prevBtn = document.getElementById('prev');
-  const nextBtn = document.getElementById('next');
-  let currentIndex = 0;
-
-  // Update the displayed image and button state
-  const updateLightbox = () => {
-    lightboxImg.src = images[currentIndex].src;
-
-    // Disable/enable buttons
-    prevBtn.disabled = currentIndex === 0;
-    nextBtn.disabled = currentIndex === images.length - 1;
-
-    // Fade out disabled buttons completely
-    prevBtn.style.opacity = prevBtn.disabled ? "0" : "1";
-    nextBtn.style.opacity = nextBtn.disabled ? "0" : "1";
-    prevBtn.style.pointerEvents = prevBtn.disabled ? "none" : "auto";
-    nextBtn.style.pointerEvents = nextBtn.disabled ? "none" : "auto";
-    prevBtn.style.transition = "opacity 0.3s ease";
-    nextBtn.style.transition = "opacity 0.3s ease";
-  };
-
-  // Open lightbox
-  images.forEach((img, index) => {
-    img.addEventListener('click', () => {
-      currentIndex = index;
-      lightbox.classList.add('active');
-      updateLightbox();
-    });
-  });
-
-  // Navigation
-  prevBtn.addEventListener('click', () => {
-    if (currentIndex > 0) {
-      currentIndex--;
-      updateLightbox();
-    }
-  });
-
-  nextBtn.addEventListener('click', () => {
-    if (currentIndex < images.length - 1) {
-      currentIndex++;
-      updateLightbox();
-    }
-  });
-
-  // Click outside to close
-  lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) lightbox.classList.remove('active');
-  });
-
-  // Keyboard controls
-  document.addEventListener('keydown', (e) => {
-    if (!lightbox.classList.contains('active')) return;
-    if (e.key === 'Escape') lightbox.classList.remove('active');
-    if (e.key === 'ArrowLeft' && currentIndex > 0) {
-      currentIndex--;
-      updateLightbox();
-    }
-    if (e.key === 'ArrowRight' && currentIndex < images.length - 1) {
-      currentIndex++;
-      updateLightbox();
-    }
-  });
-</script>
-
+ <script src="../../js/project-script.js"></script>
 
 </body>
 </html>
