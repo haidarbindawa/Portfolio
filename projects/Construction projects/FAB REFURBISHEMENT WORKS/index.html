@@ -111,6 +111,22 @@
 </div>
 
  <script src="../../js/project-script.js"></script>
-
+<script>
+(function(){
+  document.addEventListener('DOMContentLoaded', function(){
+    const imgs = document.querySelectorAll('img');
+    imgs.forEach(img => {
+      if (img.closest('picture')) return;
+      if (!img.hasAttribute('loading')) img.setAttribute('loading','lazy');
+      if (!img.hasAttribute('decoding')) img.setAttribute('decoding','async');
+      const src = img.getAttribute('src');
+      if (src && !img.hasAttribute('srcset')) {
+        img.setAttribute('srcset', `${src} 320w, ${src} 640w, ${src} 1024w`);
+        img.setAttribute('sizes', '(max-width:640px) 100vw, 640px');
+      }
+    });
+  });
+})();
+</script>
 </body>
 </html>
