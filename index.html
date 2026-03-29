@@ -7,87 +7,40 @@
 <meta name="description" content="Portfolio of Engr. Ado Aliyu Ali — COREN &amp; NSE certified Civil/Structural Engineer." />
 
 <!-- Tailwind (compiled for production) -->
-<link rel="stylesheet" href="/main.css">
+<link rel="stylesheet" href="main.css"/>
 <!-- Dev fallback (quick test only): <script defer src="https://cdn.tailwindcss.com"></script> -->
+ <link rel="stylesheet" href="index.css"/>
+<link rel="icon" type="image/x-icon" href="/images/profile.jpg"/>
 
-<style>
-:root{
-  --emerald-500:#10B981;
-  --emerald-600:#059669;
-  --dark-bg:#111827; /* original background color */
-}
+<script>
+// Fallback: if compiled CSS didn't load/apply, dynamically load Tailwind CDN.
+(function(){
+  function tailwindApplied(){
+    try{
+      var el = document.createElement('div');
+      el.className = 'hidden';
+      el.style.position = 'absolute';
+      el.style.left = '-9999px';
+      document.documentElement.appendChild(el);
+      var applied = getComputedStyle(el).display === 'none';
+      el.parentNode.removeChild(el);
+      console.log('Tailwind applied:', applied);
+      return applied;
+    }catch(e){
+      return false;
+    }
+  }
 
-/* Force the entire page into your signature dark mode */
-html, body {
-  height: 100%;
-}
-
-/* Main dark theme wrapper */
-body.custom-dark,
-html.custom-dark body {
-  background-color: var(--dark-bg) !important;
-  color: #f8fafc !important;
-}
-
-/* Match your old card / panel style */
-.custom-dark .bg-white\/60,
-.custom-dark .rounded-md,
-.custom-dark .card,
-.custom-dark .panel {
-  background-color: rgba(255,255,255,0.05) !important;
-  border-color: rgba(255,255,255,0.08) !important;
-}
-
-/* Adjust text contrast to match original look */
-.custom-dark .text-gray-600 { color: #9CA3AF !important; }
-.custom-dark .text-gray-700 { color: #D1D5DB !important; }
-.custom-dark .text-gray-400 { color: #9CA3AF !important; }
-.custom-dark .text-gray-500 { color: #6B7280 !important; }
-
-/* Button style consistency */
-.custom-dark .btn-emerald {
-  background: var(--emerald-500);
-  color: #fff;
-  border-radius: 0.375rem;
-  padding: 0.5rem 0.75rem;
-  display: inline-block;
-}
-
-/* LinkedIn hover behaviour */
-.custom-dark .link-group svg { 
-  fill: #fff; 
-  transition: fill .2s; 
-}
-.custom-dark .link-group:hover svg { 
-  fill: var(--emerald-500); 
-}
-.custom-dark .link-group { 
-  color: #fff; 
-  transition: color .2s; 
-}
-.custom-dark .link-group:hover { 
-  color: var(--emerald-500); 
-}
-
-/* Smooth transitions */
-* { 
-  transition: background-color .15s ease, color .15s ease; 
-}
-
-html { scroll-behavior: smooth; }
-/* Restore correct border color */
-body.dark .border,
-html.dark .border {
-    border-color: #1f2937 !important; /* Tailwind gray-800 */
-}
-
-/* Light mode border (same as before) */
-body:not(.dark) .border {
-    border-color: #e5e7eb !important; /* Tailwind gray-200 */
-}
-
-
-</style>
+  if (!tailwindApplied()){
+    var s = document.createElement('script');
+    s.src = 'https://cdn.tailwindcss.com';
+    s.defer = true;
+    s.crossOrigin = 'anonymous';
+    document.head.appendChild(s);
+    console.warn('Tailwind CSS not detected. Loading from CDN as fallback.');
+  }
+})();
+</script>
 </head>
 
 <!-- set class custom-dark so the site ALWAYS uses your dark theme -->
